@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "Gateway API Link Protector",
+  "version": "1.0",
+  "description": "Quickly scan student placement and registration links for phishing indicators.",
+  "permissions": [],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}

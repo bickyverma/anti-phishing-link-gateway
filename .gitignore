@@ -1,0 +1,14 @@
+# Node dependencies
+frontend/node_modules/
+frontend/dist/
+
+# Python virtual environment and caches
+backend/venv/
+backend/.venv/
+**/__pycache__/
+*.pyc
+
+# Local environment variables and OS junk
+.env
+.DS_Store
+Thumbs.db
