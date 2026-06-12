@@ -14,7 +14,7 @@ document.getElementById('scan-btn').addEventListener('click', async () => {
 
   try {
     // 1. Send the initial scan request to your local FastAPI server
-    const response = await fetch('http://127.0.0.1:8000/api/v1/scan', {
+    const response = await fetch('https://anti-phishing-link-gateway-1.onrender.com/api/v1/scan', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ url: urlInput })
@@ -33,7 +33,7 @@ document.getElementById('scan-btn').addEventListener('click', async () => {
     // 2. Start the 2-second polling loop
     const pollInterval = setInterval(async () => {
       try {
-        const checkResponse = await fetch(`http://127.0.0.1:8000/api/v1/task/${taskId}`);
+        const checkResponse = await fetch(`https://anti-phishing-link-gateway-1.onrender.com/api/v1/task/${taskId}`);
         if (!checkResponse.ok) return;
 
         const taskData = await checkResponse.json();

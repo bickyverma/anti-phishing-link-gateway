@@ -32,7 +32,7 @@ function App() {
     setUrlInput(''); 
 
     try {
-      const response = await fetch('http://127.0.0.1:8000/api/v1/scan', {
+      const response = await fetch('https://anti-phishing-link-gateway-1.onrender.com/api/v1/scan', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ url: targetUrl }),
@@ -45,7 +45,7 @@ function App() {
 
       // Check if it bypassed directly due to blacklist presence
       if (initialData.status === 'Completed') {
-        const checkResponse = await fetch(`http://127.0.0.1:8000/api/v1/task/${targetTaskId}`);
+        const checkResponse = await fetch(`https://anti-phishing-link-gateway-1.onrender.com/api/v1/task/${targetTaskId}`);
         const finalBlacklistData = await checkResponse.json();
         const blacklistResult = {
           id: Date.now(),
@@ -74,7 +74,7 @@ function App() {
 
       const pollInterval = setInterval(async () => {
         try {
-          const checkResponse = await fetch(`http://127.0.0.1:8000/api/v1/task/${targetTaskId}`);
+          const checkResponse = await fetch(`https://anti-phishing-link-gateway-1.onrender.com/api/v1/task/${targetTaskId}`);
           if (!checkResponse.ok) return;
           
           const taskData = await checkResponse.json();
@@ -122,7 +122,7 @@ function App() {
     setSuccessMsg('');
 
     try {
-      const response = await fetch('http://127.0.0.1:8000/api/v1/report', {
+      const response = await fetch('https://anti-phishing-link-gateway-1.onrender.com/api/v1/report', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ url: reportInput.trim() }),
